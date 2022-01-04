@@ -1,1 +1,3 @@
-<p>sensitivitycomp works!</p>
+<div *ngFor="let res of sensitivities; let i=index;">
+  <p>{{this.returnSensitivitiesById(i)}}</p>
+</div>

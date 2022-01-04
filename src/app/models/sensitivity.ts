@@ -57,6 +57,6 @@ export class Sensitivity {
   }
 
   toString(): string {
-    return this.questionId + this.resolutionValue + this.sensitivityValue + this.playerName;
+    return "ID: " + this.questionId + " | Resolution Value: " + this.resolutionValue + " | Sensitivity Value: " + this.sensitivityValue + " | Player Name: " + this.playerName;
   }
 }
