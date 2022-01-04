@@ -4,6 +4,7 @@ import {HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { SensitivitycompComponent } from './sensitivitycomp/sensitivitycomp.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { SensitivitycompComponent } from './sensitivitycomp/sensitivitycomp.comp
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

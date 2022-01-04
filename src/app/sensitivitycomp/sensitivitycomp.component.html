@@ -1,3 +1,26 @@
-<div *ngFor="let res of sensitivities; let i=index;">
-  <p>{{this.returnSensitivitiesById(i)}}</p>
+<h1 class="cl1">Liste des sensis</h1>
+<div class="cl3">
+<div class="cl2"*ngFor="let res of sensitivities; let i=index;">
+  <p class="cl">{{this.returnSensitivitiesById(i)}}</p>
+</div>
+</div>
+
+<div class="cl4">
+  <h2 class="cl1">Ajouter une sensi</h2>
+  <form [formGroup]="questionnaireForm" (submit)="onClickForm()">
+    <label for="playerName">Enter your player name: </label>
+    <input formControlName="playerName" type="text" name="playerName" id="playerName" required>
+
+    <label for="resolutionValue">Enter your resolution valiue: </label>
+    <input formControlName="resolutionValue" type="text" name="resolutionValue" id="resolutionValue" required>
+
+    <label for="sensitivityValue">Enter your sensitivity value: </label>
+    <input formControlName="sensitivityValue" type="text" name="sensitivityValue" id="sensitivityValue" required>
+
+    <label for="gameName">Enter your game name: </label>
+    <input formControlName="gameName" type="text" name="gameName" id="gameName" required>
+
+
+    <button type="submit">Envoyer!</button>
+  </form>
 </div>

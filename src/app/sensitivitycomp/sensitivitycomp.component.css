@@ -1,0 +1,30 @@
+h1 {
+  font-family: "Arial", serif;
+}
+
+p {
+  font-family: "Arial", serif;
+}
+
+h2 {
+  font-family: "Arial", serif;
+}
+
+.cl1 {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.cl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.cl3 {
+  border: solid;
+}
