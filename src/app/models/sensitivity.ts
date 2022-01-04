@@ -7,12 +7,12 @@ export class Sensitivity {
   private _playerName: string;
 
 
-  constructor(questionId: number, gameName: string, sensitivityValue: number, resolutionValue: string, playerName: string) {
-    this._questionId = questionId;
-    this._gameName = gameName;
-    this._sensitivityValue = sensitivityValue;
-    this._resolutionValue = resolutionValue;
-    this._playerName = playerName;
+  constructor() {
+    this._questionId = 0;
+    this._gameName = "NaN";
+    this._sensitivityValue = 0;
+    this._resolutionValue = "NaN";
+    this._playerName = "NaN";
   }
 
 
