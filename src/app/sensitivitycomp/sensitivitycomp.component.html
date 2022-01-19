@@ -23,4 +23,18 @@
 
     <button type="submit">Envoyer!</button>
   </form>
+
+  <h2 class="cl1">Supprimer une sensi</h2>
+
+  <form [formGroup]="deleteForm" (submit)="onClickFormDelete()">
+    <label for="idDelete">Choose a value:</label>
+
+    <select name="idDelete" id="idDelete" formControlName="idDelete">
+      <option value="">--Please choose an option--</option>
+      <option [value]="country.questionId" *ngFor="let country of sensitivities">{{this.returnSensitivityToString(country)}}</option>
+    </select>
+
+    <br>
+    <button type="submit">Envoyer!</button>
+  </form>
 </div>

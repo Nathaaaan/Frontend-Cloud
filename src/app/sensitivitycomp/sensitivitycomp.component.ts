@@ -22,6 +22,10 @@ export class SensitivitycompComponent implements OnInit {
     sensitivityValue: this.fb.control('')
   });
 
+  public deleteForm = this.fb.group({
+    idDelete: this.fb.control('')
+  });
+
   constructor(private fb: FormBuilder, private http: HttpClient, private sensitivityService: SensitivityService) {
   }
 
@@ -44,6 +48,14 @@ export class SensitivitycompComponent implements OnInit {
     return this._sensitivities[i].toString();
   }
 
+  returnSensitivityToString(s: Sensitivity){
+    return s.toString();
+  }
+
+  returnSensitivityIdById(i: number){
+    return this.sensitivities[i].questionId;
+  }
+
   onClickForm() {
 
     let urltocall: string = 'http://localhost:12322/sensitivities?';
@@ -57,6 +69,11 @@ export class SensitivitycompComponent implements OnInit {
     });
 
 
+  }
+
+  onClickFormDelete(){
+    //TODO Delete
+    console.log(this.deleteForm.value["idDelete"]);
   }
 
 }
