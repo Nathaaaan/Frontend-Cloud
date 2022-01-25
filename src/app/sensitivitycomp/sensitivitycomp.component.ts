@@ -71,9 +71,23 @@ export class SensitivitycompComponent implements OnInit {
 
   }
 
+  deleteFromArray(id: number){
+    console.log("Méthode delete from array")
+    this._sensitivities = this._sensitivities.filter(s => s.questionId !== id);
+  }
+
   onClickFormDelete(){
     //TODO Delete
     console.log(this.deleteForm.value["idDelete"]);
+    let urltocall: string = 'http://localhost:12322/sensitivities/';
+    urltocall += this.deleteForm.value["idDelete"];
+
+    this.http.delete<Sensitivity>(urltocall).subscribe(data => {
+      console.log(data);
+      this.deleteFromArray(this.deleteForm.value["idDelete"])
+    });
+
+
   }
 
 }
