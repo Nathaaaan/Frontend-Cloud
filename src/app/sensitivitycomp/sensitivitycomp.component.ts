@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SensitivityService} from "../services/sensitivity.service";
-import {HttpClient, HttpHandler} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Sensitivity} from "../models/sensitivity";
 import {FormBuilder} from "@angular/forms";
 
@@ -52,19 +52,15 @@ export class SensitivitycompComponent implements OnInit {
     return s.toString();
   }
 
-  returnSensitivityIdById(i: number){
-    return this.sensitivities[i].questionId;
-  }
-
   onClickForm() {
 
-    let urltocall: string = 'http://localhost:12322/sensitivities?';
-    urltocall += 'gameName=' + this.questionnaireForm.value["gameName"];
-    urltocall += '&playerName=' + this.questionnaireForm.value["playerName"];
-    urltocall += '&resolutionValue=' + this.questionnaireForm.value["resolutionValue"];
-    urltocall += '&sensitivityValue=' + this.questionnaireForm.value["sensitivityValue"];
+    let urlToCall: string = 'http://localhost:12322/sensitivities?';
+    urlToCall += 'gameName=' + this.questionnaireForm.value["gameName"];
+    urlToCall += '&playerName=' + this.questionnaireForm.value["playerName"];
+    urlToCall += '&resolutionValue=' + this.questionnaireForm.value["resolutionValue"];
+    urlToCall += '&sensitivityValue=' + this.questionnaireForm.value["sensitivityValue"];
 
-    this.http.post<Sensitivity>(urltocall, {title: 'Angular POST Request Example'}).subscribe(data => {
+    this.http.post<Sensitivity>(urlToCall, {title: 'Angular POST Request'}).subscribe(data => {
       console.log(data);
     });
 
@@ -72,17 +68,16 @@ export class SensitivitycompComponent implements OnInit {
   }
 
   deleteFromArray(id: number){
-    console.log("Méthode delete from array")
     this._sensitivities = this._sensitivities.filter(s => s.questionId !== id);
   }
 
   onClickFormDelete(){
     //TODO Delete
     console.log(this.deleteForm.value["idDelete"]);
-    let urltocall: string = 'http://localhost:12322/sensitivities/';
-    urltocall += this.deleteForm.value["idDelete"];
+    let urlToCall: string = 'http://localhost:12322/sensitivities/';
+    urlToCall += this.deleteForm.value["idDelete"];
 
-    this.http.delete<Sensitivity>(urltocall).subscribe(data => {
+    this.http.delete<Sensitivity>(urlToCall).subscribe(data => {
       console.log(data);
       this.deleteFromArray(this.deleteForm.value["idDelete"])
     });
