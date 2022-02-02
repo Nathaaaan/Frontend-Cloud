@@ -68,11 +68,10 @@ export class SensitivitycompComponent implements OnInit {
   }
 
   deleteFromArray(id: number){
-    this._sensitivities = this._sensitivities.filter(s => s.questionId !== id);
+    this._sensitivities = this._sensitivities.filter(s => s.questionId != id);
   }
 
   onClickFormDelete(){
-    //TODO Delete
     console.log(this.deleteForm.value["idDelete"]);
     let urlToCall: string = 'http://localhost:12322/sensitivities/';
     urlToCall += this.deleteForm.value["idDelete"];
@@ -81,8 +80,6 @@ export class SensitivitycompComponent implements OnInit {
       console.log(data);
       this.deleteFromArray(this.deleteForm.value["idDelete"])
     });
-
-
   }
 
 }
