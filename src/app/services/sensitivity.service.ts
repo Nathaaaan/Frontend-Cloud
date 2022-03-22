@@ -6,6 +6,9 @@ import {map} from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * This class is the Sensitivity Service Class that do request to get data from backend
+ */
 export class SensitivityService {
 
   private baseUrl = 'http://localhost:12322/sensitivities';
