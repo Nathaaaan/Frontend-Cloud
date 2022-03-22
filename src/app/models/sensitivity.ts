@@ -1,12 +1,20 @@
+/**
+ * This class represents the Sensitivity Entity
+ */
 export class Sensitivity {
 
+  /**
+   * Attributes
+   */
   private _questionId: number;
   private _gameName: string;
   private _sensitivityValue: number;
   private _resolutionValue: string;
   private _playerName: string;
 
-
+  /**
+   * Constructor of the class
+   */
   constructor() {
     this._questionId = 0;
     this._gameName = "NaN";
@@ -16,6 +24,9 @@ export class Sensitivity {
   }
 
 
+  /**
+   * Getters and setters
+   */
   get questionId(): number {
     return this._questionId;
   }
@@ -56,6 +67,9 @@ export class Sensitivity {
     this._playerName = value;
   }
 
+  /**
+   * toString method
+   */
   toString(): string {
     return "ID: " + this.questionId + " | Resolution Value: " + this.resolutionValue + " | Sensitivity Value: " + this.sensitivityValue + " | Player Name: " + this.playerName + " | Game Name: " + this.gameName;
   }
