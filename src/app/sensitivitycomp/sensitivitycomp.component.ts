@@ -11,10 +11,20 @@ import {FormBuilder} from "@angular/forms";
   styleUrls: ['./sensitivitycomp.component.css'],
   providers: [SensitivityService]
 })
+/**
+ * Sensitivity Component
+ */
 export class SensitivitycompComponent implements OnInit {
 
+  /**
+   * Attribute that correspond to the list of all sensitivities
+   * @private _sensitivities the array that contains all sensitivities from database
+   */
   private _sensitivities: Sensitivity[] = [];
 
+  /**
+   * The questionnaireForm
+   */
   public questionnaireForm = this.fb.group({
     gameName: this.fb.control(''),
     playerName: this.fb.control(''),
@@ -22,13 +32,25 @@ export class SensitivitycompComponent implements OnInit {
     sensitivityValue: this.fb.control('')
   });
 
+  /**
+   * The delete form
+   */
   public deleteForm = this.fb.group({
     idDelete: this.fb.control('')
   });
 
+  /**
+   * Constructor of the component
+   * @param fb the form builder
+   * @param http the http client
+   * @param sensitivityService the Sensitivity Service
+   */
   constructor(private fb: FormBuilder, private http: HttpClient, private sensitivityService: SensitivityService) {
   }
 
+  /**
+   * This method is called when the component is loaded
+   */
   ngOnInit(): void {
 
     this.sensitivityService.getSensitivities().subscribe((sensitivities: Sensitivity[]) => {
@@ -52,6 +74,9 @@ export class SensitivitycompComponent implements OnInit {
     return s.toString();
   }
 
+  /**
+   * Method called when the form is clicked
+   */
   onClickForm() {
 
     let urlToCall: string = 'http://localhost:12322/sensitivities?';
@@ -67,10 +92,17 @@ export class SensitivitycompComponent implements OnInit {
 
   }
 
+  /**
+   * Delete a sensitivity from the array
+   * @param id the ID of sensitivity to delete
+   */
   deleteFromArray(id: number){
     this._sensitivities = this._sensitivities.filter(s => s.questionId != id);
   }
 
+  /**
+   * This method is called when the delete form is clicked
+   */
   onClickFormDelete(){
     console.log(this.deleteForm.value["idDelete"]);
     let urlToCall: string = 'http://localhost:12322/sensitivities/';
