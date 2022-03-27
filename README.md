@@ -49,7 +49,6 @@ With the application it's possible to:
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [Angular](https://angular.io/)
 * [TypeScript](https://www.typescriptlang.org/)
